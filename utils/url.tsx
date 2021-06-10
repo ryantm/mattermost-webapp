@@ -151,6 +151,10 @@ export function shouldOpenInNewTab(url: string, siteURL?: string, managedResourc
         return true;
     }
 
+    if (getScheme(url) === "s2") {
+        return false;
+    }
+
     const path = url.startsWith('/') ? url : url.substring(siteURL?.length || 0);
 
     // Paths managed by plugins and public file links aren't handled by the web app
